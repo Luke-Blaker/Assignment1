@@ -3,7 +3,7 @@ let circleArray = [];
 let arraySize = 1000;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(594, 841);
   for (let i=0; i<arraySize; i++){
     circleArray[i] = new Circle(width/2, height/2, random(-5, 5), random(-5, 5), random(10, 100));
   }
@@ -30,7 +30,7 @@ class Circle{
     this.y = y;
     this.speedX = speedX;
     this.speedY = speedY;
-    this.size = size;
+    //this.size = size;
 
     this.rd = random(255);
     this.grn = random(255);
@@ -57,8 +57,8 @@ class Circle{
   displayCircle(){
     this.fillcol = color(this.rd, this.grn, this.bl, this.a)
     fill(this.fillcol);
-    ellipse(this.x,this.y, this.size, this.size);
+    ellipse(this.x,this.y, 10, 10);
     stroke(this.fillcol);
-    line(this.x, this.y, 250, 250);
+    line(this.x, this.y, 297, 420);
   }
 }
