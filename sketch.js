@@ -1,20 +1,21 @@
 //Create two variables that will store the new objects from the class Circle
-let circleArray = [];
+let circlelineArray = [];
 let arraySize = 1000;
+
 
 function setup() {
   createCanvas(594, 841);
   for (let i=0; i<arraySize; i++){
-    circleArray[i] = new Circle(width/2, height/2, random(-5, 5), random(-5, 5), random(10, 100));
+    circlelineArray[i] = new CircleLines(width/2, height/2, random(-5, 5), random(-5, 5), random(10, 100));
   }
-  console.log(circleArray);
+  console.log(circlelineArray);
 }
 
 function draw() {
   //background(160);
-  for (let i=0; i<circleArray.length; i++){
-    circleArray[i].moveFunction();
-    circleArray[i].displayCircle();
+  for (let i=0; i<circlelineArray.length; i++){
+    circlelineArray[i].moveFunction();
+    circlelineArray[i].displayCircleLines();
 
 
 
@@ -22,28 +23,22 @@ function draw() {
 }
 
 //Definition of the class Circle
-class Circle{
+class CircleLines{
 
-  colourmap(){
-    var mouse1 = map(mouseY, 0, height, 0, 255);
-    var mouse2 = map(mouseX, 0, width, 0, 255);
-    var mouse3 = map(mouseY, 0, width, 0, 255);
-  }
-
-
-  constructor(x, y, speedX, speedY, size){
+  constructor(x, y, speedX, speedY, size, rd, grn, bl, a){
     //Setup of class' variables
     this.x = x;
     this.y = y;
     this.speedX = speedX;
     this.speedY = speedY;
-    //this.size = size;
-
     this.rd = random(255);
-    this.grn = random(255);
     this.bl = random(255);
+    this.grn = random(255);
     this.a = random(255);
+    //this.size = size;
   }
+
+
 
   //Class function that takes care of motion and collision
   moveFunction(){
@@ -61,11 +56,21 @@ class Circle{
   }
 
   //Class function that displays the ellipse
-  displayCircle(){
+  displayCircleLines(){
+
+
+    if(keyIsDown(32)){
+      (this.rd = random(255));
+      (this.grn = random(255));
+      (this.bl = random(255));
+    }
+
+
     this.fillcol = color(this.rd, this.grn, this.bl, this.a)
     fill(this.fillcol);
     ellipse(this.x,this.y, 10, 10);
     stroke(this.fillcol);
     line(this.x, this.y, 297, 420);
+
   }
 }
