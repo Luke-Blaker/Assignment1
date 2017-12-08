@@ -24,6 +24,13 @@ function draw() {
 //Definition of the class Circle
 class Circle{
 
+  colourmap(){
+    var mouse1 = map(mouseY, 0, height, 0, 255);
+    var mouse2 = map(mouseX, 0, width, 0, 255);
+    var mouse3 = map(mouseY, 0, width, 0, 255);
+  }
+
+
   constructor(x, y, speedX, speedY, size){
     //Setup of class' variables
     this.x = x;
